@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  font-size: 30px;
+}
+section {
+  margin-bottom: 0.667rem;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.card {
+  padding: 1rem;
+  background-color: #f5fafe;
+}
+.card .card-wrapper {
+  width: 100%;
+}
+.card .card-wrapper .user-info {
+  width: 100%;
+  font-size: 0;
+}
+.card .card-wrapper .user-info .user-info__pic {
+  width: 100%;
+}
+.card .card-wrapper .user-info .user-info__pic img {
+  width: 100%;
+}
+.card .card-wrapper .user-info .user-info__desc {
+  padding: 0.33rem 0.667rem;
+}
+.card .card-wrapper .user-info .user-info__desc .name {
+  font-size: 1rem;
+  color: #010101;
+}
+.card .card-wrapper .user-info .user-info__desc .name .sex {
+  width: 0.67rem;
+  height: 0.6rem;
+  display: inline-block;
+  background-image: url("./img/xingbienv.png");
+  background-size: contain;
+}
+.card .card-wrapper .user-info .user-info__desctwo {
+  padding: 0;
+  overflow: auto;
+}
+.card .card-wrapper .user-info .user-info__desctwo .kailang {
+  width: 1rem;
+  height: 1.3rem;
+  background-color: #48a6fd;
+  margin: 0.5rem;
+  font-size: 0.2rem;
+  color: #fff;
+  text-align: center;
+  float: left;
+}
+.card .card-wrapper .user-info .user-info__desctwo .freejob {
+  width: 2.5rem;
+  height: 1.3rem;
+  background-color: #008000;
+  margin: 0.5rem;
+  font-size: 0.2rem;
+  color: #fff;
+  text-align: center;
+  float: left;
+}
+.card .card-wrapper .user-info .user-info__desctwo .love {
+  width: 2rem;
+  height: 1.3rem;
+  background-color: #ff0;
+  margin: 0.5rem;
+  font-size: 0.2rem;
+  color: #fff;
+  text-align: center;
+  float: left;
+}
+.card .card-wrapper .user-info .user-info__descthree {
+  height: 5rem;
+  width: 100%;
+}
+.card .card-wrapper .user-info .user-info__descthree .A-a {
+  width: 5rem;
+  height: 1rem;
+  font-size: 1rem;
+  color: #999;
+  float: left;
+}
+.card .card-wrapper .user-info .user-info__descthree .A-a .adree {
+  width: 0.5rem;
+  height: 0.5rem;
+  font-size: 0.5rem;
+  background-image: url("./img/dizhi.png");
+  background-size: contain;
+}
+.card .card-wrapper .user-info .user-info__descthree .A-b {
+  width: 5rem;
+  height: 1rem;
+  font-size: 1rem;
+  color: #999;
+  float: left;
+}
+.card .card-wrapper .user-info .user-info__descthree .A-b .job {
+  width: 0.5rem;
+  height: 0.5rem;
+  font-size: 0.5rem;
+  background-image: url("./img/zhiye.png");
+  background-size: contain;
+}

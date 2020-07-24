@@ -1,0 +1,18 @@
+<map id="map" longitude="115.82927764285277" latitude="28.718258937567192" scale="14" controls="{{controls}}"
+  bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}"
+  bindregionchange="regionchange" show-location style="width: 100%; height: 100vh;">
+
+  <cover-image class="pic" src="/image/扳手.png">
+
+  </cover-image>
+  <cover-image class="picone" src="/image/定位.png">
+
+  </cover-image>
+  <cover-view class="button">
+    <cover-image class="shaomiao" src="/image/shaomao.png">
+
+    </cover-image>
+    <cover-view class="wenzi">扫码用车</cover-view> 
+  </cover-view>
+
+</map>

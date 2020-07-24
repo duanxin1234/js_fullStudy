@@ -1,0 +1,20 @@
+<!--pages/main/main.wxml-->
+<view class="container">
+	<scroll-view scroll-y style="height:100%">
+		<view class="header">
+			<view class="header_hd">
+				<text>南昌</text>
+				<view class="downtips"></view>
+			</view>
+			<view class="header_bd">
+				<view class="header_bd-hot header_bd-btn" style="color:#ef4238">正在上映</view>
+				<view class="header_bd-waiting header_bd-btn" bindtap="tabChangeWaiting">即将上映</view>
+				<view class="bottomLine" style="left:73px"></view>
+			</view>
+			<view class="header_ft">
+				<image src="../../images/icon_magnifier.png" alt=""></image>
+			</view>
+		</view>
+	</scroll-view>
+</view>
+

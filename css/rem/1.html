@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=0.5"> -->
+    <title>Document</title>
+    <script>
+        var ratio = 1 / window.devicePixelRatio;
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'initial-scale=' + ratio;
+        var head = document.querySelector('head');
+        head.appendChild(meta);
+        var width = (window.innerWidth * window.devicePixelRatio) / 10
+        var html = document.querySelector('html');
+        html.style.fontSize = width + 'px';
+
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 20px;
+        }
+
+        div {
+            /* font-size: 30px;
+            width: 3rem;
+            height: 3rem;
+            background-color: green; */
+        }
+
+        input {
+            height: 0.746rem;
+            width: 5.92rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text">
+    </div>
+</body>
+
+</html>

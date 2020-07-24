@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dbj {
+            width: 343px;
+            height: 480px;
+            position: relative;
+            top: 10px;
+            margin: 0 auto;
+            background-image: url(./img/bg.jpg);
+        }
+
+        .wenzi {
+            width: 236px;
+            height: 77px;
+            position: absolute;
+            left: 53px;
+            top: 100px;
+            background-image: url(./img/head.jpg);
+        }
+
+        .title {
+            position: absolute;
+        }
+
+        .title .xianniao {
+            width: 236px;
+            height: 77px;
+            position: absolute;
+            left: 200px;
+            top: 100px;
+            float: right;
+            z-index: 2;
+            color: #4abb3b;
+
+        }
+
+        .anniu {
+            width: 85px;
+            height: 29px;
+            position: absolute;
+            left: 120px;
+            top: 250px;
+            background-image: url(./img/start.jpg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dbj">
+
+        <div class="title">
+            <div class="xianniao"><img src="./img/up_bird0.png" alt=""></div>
+            <div class="wenzi"></div>
+        </div>
+        <div class="anniu"></div>
+    </div>
+
+    <script>
+        var jstitle = document.querySelector('.wenzi')
+        var jsxiaoniao = document.querySelector('.xianniao')
+
+        // console.log(jstitle)
+
+        var Y = 3
+        var index = 0
+        var imgArr = ['img/up_bird0.png', 'img/up_bird1.png']
+        var headWaveTimer = setInterval(headWave, 200)
+        function headWave() {
+            console.log(123)
+            Y = Y * -1
+            jstitle.style.top = jstitle.offsetTop + Y + 'px'
+            jsxiaoniao.src = imgArr[index++]
+
+            if (index == 2) {
+                index = 0
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>
