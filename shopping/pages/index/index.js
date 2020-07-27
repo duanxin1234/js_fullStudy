@@ -12,7 +12,7 @@ Page({
         ],
         aaa: 800,
         interval: 3,
-        bbb: true
+    
     },
 
     /**

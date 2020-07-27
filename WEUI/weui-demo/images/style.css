@@ -1,0 +1,10 @@
+.fruit{
+    background-color: #fff;
+    text-align: center;
+}
+.fruit-item{
+    float: left;
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+}
