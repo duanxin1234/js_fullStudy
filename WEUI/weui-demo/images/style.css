@@ -1,10 +1,40 @@
-.fruit{
-    background-color: #fff;
+
+.contian{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+}
+
+.weui-tabbar{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.header{
+    width: 100%;
+    height: 50rpx;
+    border-bottom: 1px solid #D8BFD8;
+
+   
+}
+.header_name{
+    width: 100%;
+    height: 50rpx;
     text-align: center;
 }
-.fruit-item{
-    float: left;
-    width: 50%;
-    padding: 10px;
-    box-sizing: border-box;
+
+
+p{
+ font-weight: bold;
+ 
+}
+/* .weui-cell  weui-cell_example{
+    height: 50rpx;
+    width: 100%;
+} */
+.weui-cells{
+    margin-top: 20rpx;
 }
