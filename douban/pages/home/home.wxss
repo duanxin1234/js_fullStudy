@@ -1,20 +1,21 @@
 /* pages/home/home.wxss */
-.weui-search-bar{
-    background-color: rgb(25, 161, 25) !important;
-    
+/* 搜索框 */
+.weui-search-bar {
+    background-color: #42bd55 !important;
 }
-.row{
-    padding-bottom: 30rpx;
+
+.row {
+    margin-bottom: 30rpx;
 }
-.title-wrapper{
+.title-wrapper {
     display: flex;
     justify-content: space-between;
     margin-left: 30rpx;
     align-items: center;
     margin-bottom: 30rpx;
 }
-.title-wrapper .title{
-    font-weight: bold;
+.title-wrapper .title {
+    font-weight: 700;
     font-size: 34rpx;
 }
 .title-right {
@@ -22,11 +23,11 @@
     align-items: center;
     margin-right: 30rpx;
 }
-.title-right .more{
+.title-right .more {
     font-size: 30rpx;
     color: #42bd55;
 }
-.title-right .arrow{
+.title-right .arrow {
     width: 12rpx;
     height: 12rpx;
     border: 1px solid #42bd55;
@@ -34,9 +35,10 @@
     border-top: none;
     transform: rotate(-45deg);
 }
-.scroll-view__movie{
+
+.scroll-view__movie {
     height: 402rpx;
-  }
-  .scroll-view__movie .item{
+}
+.scroll-view__movie .item {
     margin-left: 30rpx;
-  }
+}
