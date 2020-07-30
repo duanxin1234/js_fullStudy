@@ -39,7 +39,7 @@
 // let str = "Thaat is hot"
 // let pat = /\bt/g
 // console.log(str.match(pat));
-let tel = " (1709@qq.com"
+let tel = " 1709@qq.com"
 let pat = /(\S)+[@]{1}(\S)+[.]{1}(\w)+/
 console.log(pat.test(tel));
 
