@@ -1,16 +1,18 @@
 <!--pages/index/index.wxml-->
 <view class="main">
-    <swiper indicator-dots="true" autoplay="{{true}}" duration="{{true}}">
-
-        <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+    <swiper>
+        <block wx:for="{{imgurl}}" wx:key="{{index}}">
             <swiper-item class="" item-id="">
-                <image class="slide-image" src="{{item}}" />
+                <image class="slide-image" src="">
 
+                </image>
 
             </swiper-item>
 
         </block>
+
     </swiper>
+
     <view class="selected">
 
         <view class="select-title">
