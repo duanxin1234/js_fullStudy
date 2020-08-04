@@ -3,4 +3,13 @@ var obj = {
     b: 20,
     c: 30
 }
-console.log(obj);
+function foo2(obj) {
+    with (obj) {
+        a=2
+    }
+    
+}
+var o2 = {
+    b:3
+}
+foo2
