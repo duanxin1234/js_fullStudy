@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .image-item {
+            height: 300px;
+            display: block;
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <img class="image-item" lazyload="true" src=""
+        data-original="http://5b0988e595225.cdn.sohucs.com/images/20200119/838d62f1d67e4cf5902db516f1cc5201.jpeg"
+        alt="">
+    <img class="image-item" lazyload="true" src=""
+        data-original="http://p8.itc.cn/images01/20200515/1d6fd45a5c524737ab063de241214f19.jpeg" alt="">
+    <img class="image-item" lazyload="true" src=""
+        data-original="http://e0.ifengimg.com/03/2019/0420/046C1B201DD7C6009EFABE205910244FB4A1F140_size35_w537_h358.jpeg"
+        alt="">
+    <img class="image-item" lazyload="true" src=""
+        data-original="http://07.imgmini.eastday.com/mobile/20180714/3b34f3b7da986d4ea5404b75cd77633b_wmk.jpeg" alt="">
+    <img class="image-item" lazyload="true" src=""
+        data-original="http://n.sinaimg.cn/sports/crawl/152/w550h402/20190327/13Sx-hutwezh1004714.jpg" alt="">
+    <img class="image-item" lazyload="true" src=""
+        data-original="http://n.sinaimg.cn/sports/crawl/152/w550h402/20190327/13Sx-hutwezh1004714.jpg" alt="">
+    <img class="image-item" src="" lazyload="true"
+        data-original="https://t1.huanqiu.cn/b5f4c80a035a2293862d643b5165e6a6.jpeg" alt="">
+    <img class="image-item" lazyload="true" src=""
+        data-original="http://5b0988e595225.cdn.sohucs.com/images/20200130/befb68d479cc47baa3e0454cc48c9e7e.jpeg"
+        alt="">
+    <img class="image-item" lazyload="true" src=""
+        data-original="http://5b0988e595225.cdn.sohucs.com/images/20171026/63da42820e824d9b8d5bbced1e69ff6d.jpeg"
+        alt="">
+    <img class="image-item" lazyload="true" src=""
+        data-original="http://5b0988e595225.cdn.sohucs.com/images/20200311/36dc1e88c6934b79a3d7146425b7e772.jpeg"
+        alt="">
+
+    <script>
+        //懒人加载 1，首先拿到可视区域的高度
+        //let viewHeight = window.innerHeight  浏览器可视高度
+        let viewHeight = document.documentElement.clientHeight
+
+        // 2，将看不到的src的路径隐藏
+        function lazyLoad() {
+            let eles = document.querySelectorAll("img[data-original][lazyload]")
+            //判断每一个img 是否出现在可视区域
+            for (let i = 0; i < eles.length; i++) {
+                let rect;
+                rect = eles[i].getBoundingClientRect()//用于获取页面上某个元素的左上右下的相对于浏览器视窗的位置
+                console.log(rect);
+                if (rect.bottom >= 0 && rect.top < viewHeight) {
+                    //在可视区域内
+                    !function () {
+                        let img = new Image()
+                        // document.createElement('img')
+                        img.src = eles[i].dataset.original
+                        img.onload = function () {
+                            item.src = img.src
+                        }
+                        eles[i].removeAttribute('data-original')//移除data-or
+                        eles[i].removeAttribute('lazyload')//移除
+
+                    }()
+                }
+
+            }
+            // Array.prototype.forEach.call(eles, function (item, index) {
+            //     let rect;
+            //     rect = item.getBoundingClientRect()//用于获取页面上某个元素的左上右下的相对于浏览器视窗的位置
+            //     console.log(rect);
+            //     if (rect.bottom >= 0 && rect.top < viewHeight) {
+            //         //在可视区域内
+            //         !function () {
+            //             let img = new Image()
+            //             img.src = item.dataset.original
+            //             img.onload = function () {
+            //                 item.src = img.src
+            //             }
+            //             item.removeAttribute('data-original')//移除data-or
+            //             item.removeAttribute('lazyload')//移除
+
+            //         }()
+            //     }
+            // })
+        }
+        lazyLoad()
+        document.addEventListener('scroll', lazyLoad)
+    </script>
+</body>
+
+</html>
