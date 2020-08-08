@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="warper" style="background-image: url(./img/bg.jpg);">
+        <div class="title">
+            <!-- 文字和小鸟 -->
+            <img id="head" src="./img/head.jpg" alt="文字">
+            <img id="headBird" src="./img/bird0.png" alt="小鸟">
+        </div>
+        <div class="start">
+            <!-- 开始按钮 -->
+            <button id="button" style="background-image: url(./img/start.jpg);"></button>
+        </div>
+        <div id="grassLand1"> </div>
+        <div id="grassLand2"> </div>
+
+
+    </div>
+    <script>
+        // 获取谁就拿谁
+        var jswarper = document.getElementsByClassName('warper') //获取这个背景
+        var jshead = document.getElementById("head") //获取文字
+        var jsheadBird = document.getElementById('headBird') //获取小鸟
+        var jsgrassLand1 = document.getElementById("grassLand1") //获取草地
+        var jsgrassLand2 = document.getElementById("grassLand2") //获取草地
+        var jsbtn = document.getElementById('button') //获取按钮
+        //实现思路 利用2张照片一个在上面 一个在下面点 利用极短的时间 实现帧动画效果 
+
+        var Y = 3
+        var index = 0
+        var imgArr = ['./img/bird0.png', './img/bird1.png']
+        var lindBirdsTimer = setInterval(headWave, 300) //设置标题和小鸟上下摆动的定时器
+        function headWave() {
+            Y *= -1;
+            jshead.style.top = jshead.offsetTop + Y + "px";
+            jsheadBird.style.top = jsheadBird.offsetTop + Y + "px"
+            jsheadBird.src = imgArr[index++]
+            if (index == 2) {
+                index = 0
+            }
+
+
+        }
+
+        //草地操作 先获取DOM 当草地做到跟他宽度一样的时候就要重新回来
+        var grassLandTimer = setInterval(landRun, 40)
+        function landRun() {
+            jsgrassLand1.style.left = jsgrassLand1.offsetLeft - 3 + 'px'
+            jsgrassLand2.style.left = jsgrassLand2.offsetLeft - 3 + 'px'
+            if (jsgrassLand1.offsetLeft <= -400) {
+                jsgrassLand1.style.left = -18 + 'px'
+                jsgrassLand2.style.left = 382 + 'px'
+            }
+
+
+        }
+        //按钮点击消失
+        jsbtn.onclick = function () {
+            jshead.style.display = "none"
+            // jsheadBird.style.display = "none" //隐藏标题
+            // clearInterval(lindBirdsTimer) //关闭标题摆动的定时器
+            jsbtn.style.display = "none"
+        }
+
+    </script>
+</body>
+
+</html>
