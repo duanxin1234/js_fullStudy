@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="box">
+        <label for="">
+            <img src="./img/闭眼.png" alt="">
+        </label>
+        <input type="password" id="input">
+    </div>
+
+    <script>
+        var jsimg = document.querySelector('img')
+        var jsinput = document.getElementById('input')
+        var flag = 0
+        jsimg.onclick = function () {
+            if (flag == 0) {
+                jsimg.src = "./img/睁眼.png"
+                jsinput.type = "text"
+                flag = 1
+            } else {
+                jsimg.src = "./img/闭眼.png"
+                jsinput.type = "password"
+                flag = 0
+            }
+
+        }
+
+    </script>
+
+
+
+
+</body>
+
+</html>

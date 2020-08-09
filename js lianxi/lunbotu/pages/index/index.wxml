@@ -1,0 +1,18 @@
+<!--index.wxml-->
+
+<swiper class="contian" indicator-dots="true" autoplay="true" current="0" current-item-id="" interval="5000"
+  duration="800">
+  <swiper-item class="box">
+
+
+
+    <image class="aa" src="../../images/arrow.png" />
+  </swiper-item>
+  <swiper-item class="box">
+    <image class="bb" src="../../images/candy.png" />
+  </swiper-item>
+  <swiper-item class="box">
+    <image class="cc" src="../../images/ewm.png" />
+  </swiper-item>
+
+</swiper>
