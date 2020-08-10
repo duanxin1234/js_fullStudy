@@ -23,11 +23,42 @@
 // }
 // // var a = 2
 // foo()
+
+
+
+// 隐式绑定
 function foo() {
     console.log(this.a);
 }
 var obj = {
     a: 2,
-    foo: foo()
+    foo: foo
 }
 obj.foo()
+
+
+// 显示绑定
+function foo() {
+    console.log(this.a);
+}
+var obj = {
+    a: 2,
+
+}
+foo.call(obj) //把foo 里面的函数指向obj 非数组
+foo.apply(obj) //把foo 里面的函数指向obj 数组
+foo.bind(obj)()
+
+// 隐式丢失
+function foo() {
+    console.log(this.a);
+}
+var obj = {
+    a: 2,
+    foo: foo
+}
+
+var bar = obj.foo
+var a = "hello"
+bar()
+
