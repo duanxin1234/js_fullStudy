@@ -24,6 +24,7 @@
 
 
     </div>
+    <script src="./index.js"></script>
     <script>
         // 获取谁就拿谁
         var jswarper = document.getElementsByClassName('warper') //获取这个背景
@@ -65,12 +66,14 @@
         //按钮点击消失
         jsbtn.onclick = function () {
             jshead.style.display = "none"
-            // jsheadBird.style.display = "none" //隐藏标题
+            jsheadBird.style.display = "none" //隐藏标题
             // clearInterval(lindBirdsTimer) //关闭标题摆动的定时器
             jsbtn.style.display = "none"
+            // 插入小鸟到界面当中
         }
 
     </script>
+
 </body>
 
 </html>

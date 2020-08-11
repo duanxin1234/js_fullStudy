@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "Canlendar": "../../components/canlendar/canlendar"
+  }
+}

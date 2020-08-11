@@ -1,19 +1,14 @@
 .box{
     width: 300px;
+    height: 300px;
+  
+}
+.box li{
+    float: left;
+    width: 30px;
     height: 30px;
-    margin: 20px auto ;
-    border-bottom: 1px solid #000;
-    position: relative;
-}
-input{
-    height: 25px;
-    width: 270px;
-    border: 0;
-    outline: none;
-}
-.box img{
-    position: absolute;
-    left: 275px;
-    top:10px;
+    margin: 15px;
+    background-image: url(./img/豆瓣.png);
+    list-style: none;
 
-} 
+}

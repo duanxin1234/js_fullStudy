@@ -9,30 +9,46 @@
 </head>
 
 <body>
-    <div class="box">
-        <label for="">
-            <img src="./img/闭眼.png" alt="">
-        </label>
-        <input type="password" id="input">
-    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+
 
     <script>
-        var jsimg = document.querySelector('img')
-        var jsinput = document.getElementById('input')
-        var flag = 0
-        jsimg.onclick = function () {
-            if (flag == 0) {
-                jsimg.src = "./img/睁眼.png"
-                jsinput.type = "text"
-                flag = 1
-            } else {
-                jsimg.src = "./img/闭眼.png"
-                jsinput.type = "password"
-                flag = 0
-            }
 
-        }
+        var datas = [
+            {
+                name: 那英,
+                score: 100,
+                subject: 'java'
+            },
+            {
+                name: 流行,
+                score: 80,
+                subject: 'java'
+            },
+            {
+                name: 按时,
+                score: 98,
+                subject: 'java'
+            },
+            {
+                name: 段鑫,
+                score: 100,
+                subject: 'java'
+            },
 
+        ]
     </script>
 
 
