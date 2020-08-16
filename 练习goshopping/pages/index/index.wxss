@@ -1,0 +1,22 @@
+/**index.wxss**/
+.box{
+  height: 200rpx;
+  display: flex;
+  border-bottom: 1px solid red;
+}
+.box-left{
+  height: 100%;
+  width: 300rpx;
+}
+.box-image{
+  width: 100%;
+  height: 100%;
+
+}
+text{
+  color: red;
+}
+
+.box.isstar{
+  border-bottom: 1px solid gold;
+}

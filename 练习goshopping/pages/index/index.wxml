@@ -1,0 +1,33 @@
+<!--index.wxml-->
+<block wx:for="{{items}}" wx:key="index">
+  <view class="box {{item.isstar?'isstar':''}}">
+    <view class="box-left">
+      <image class="box-image" src="/img/0.jpg"></image>
+    </view>
+    <view class="box-right">
+      <view class="box-right_title">标题测试</view>
+      <view class="box-right_teacher">讲师： 撩课
+        <text class="isstar" wx:if="{{item.isstar}}">星级讲师</text>
+      </view>
+      <view class="box-right_num">学习人数：{{item.num>=1000?item.num/1000+"k":item.num}}人</view>
+    </view>
+
+  </view>
+
+</block>
+
+
+
+<!-- <view class="box {{isstar?'isstar':''}}">
+  <view class="box-left">
+    <image class="box-image" src="/img/0.jpg"></image>
+  </view>
+  <view class="box-right">
+    <view class="box-right_title">标题测试</view>
+    <view class="box-right_teacher">讲师： 撩课
+      <text class="isstar" wx:if="{{isstar}}">星级讲师</text>
+    </view>
+    <view class="box-right_num">学习人数：{{num>=1000?num/1000+"k":num}}人</view>
+  </view>
+
+</view> -->
