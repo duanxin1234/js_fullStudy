@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <title>Document</title>
+
+</head>
+
+<body>
+    <!-- <script>
+        $.ajax({
+            url: "http://neteasecloudmusicapi.zhaoboy.com/top/list",
+            data: {
+                idx: 1
+            },
+            dataType: "JSON",
+            method: "Get",
+            success: (res) => {
+                console.log(res);
+            }
+        })
+    </script> -->
+    <!-- <script>
+        var xhr = new XMLHttpRequest()
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')//post 请求一定要设置请求头
+        xhr.open('post', "http://neteasecloudmusicapi.zhaoboy.com/top/list")
+        xhr.send('idx=1')
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log(xhr.response);
+            }
+        }
+    </script> -->
+    <script>
+        function request(method, url, data, success) {
+            var ajax = new XMLHttpRequest()
+            if (method == "get" || method == "GET") {
+                //get 请求
+                if (data) {
+                    url += "?"
+                    url += data
+                } else {
+
+                }
+                ajax.open(method.url)
+                ajax.send()
+            } else {
+                //post 请求
+                ajax.open(method, url)
+
+                ajax.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+                if (data) {
+                    ajax.send(data)
+                } else {
+                    ajax.send()
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
