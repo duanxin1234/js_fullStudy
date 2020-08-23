@@ -28,11 +28,10 @@
 //对象创建
 // 1.var obj={} //对象字面量
 // 2.构造函数
-let a = new Object()
-let b = new Object()
+// let a = new Object()
+// let b = new Object()
 
 function Car(color) { // 构造函数 大驼峰式命名
-    this.name = "BMW",
         this.name = "BMW",
         this.height = "1400",
         this.health = 100,
