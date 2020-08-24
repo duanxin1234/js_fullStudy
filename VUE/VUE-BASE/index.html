@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.common.dev.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <div v-show="issure">666</div>
+        <div>555</div> -->
+        <!-- <div class="item" v-for="item in list" :key="index">
+            <p>{{item}}</p>
+        </div>
+        <div class="items" v-for="items in preson" :key="index">
+            <p>{{items.name}}-{{items.age}}</p>
+        </div> -->
+        <div class="msg">
+            <p>{{count}}</p>
+            <button v-on:click="add">+</button>
+            <button @click="reduce">-</button>
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+
+                count: 0
+            },
+            methods: {
+                add() {
+                    // console.log("add");
+                    this.count++
+                },
+                reduce() {
+                    this.count--
+                }
+            },
+
+            //八个生命周期 函数
+            beforeCreate() {
+                console.log("beforeCreate");
+            }, //页面初始化之前的周期阶段 发起接口请求
+            created() {
+                console.log("created");
+            }, //页面初始化完成后
+            beforeMount() {
+                console.log("beforeMount");
+            },//页面挂载前
+            mounted() {
+                console.log("mounted");
+            },
+            beforeUpdate() {
+                console.log("beforeUpdate");
+            },
+            updated() {
+                console.log("updated");
+            },
+            beforeDestory() {
+                console.log("beforeDestory");
+            },
+            destoryed() {
+                console.log("destoryed");
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>
