@@ -28,18 +28,25 @@ export default {
       console.log(123);
       if (!this.user || !this.password) {
         this.$message.error("账号和密码不能为空");
-      } else if (this.user == "admin" && this.password == "123456") {
+      }
+      // } else if (this.user == "admin" && this.password == "123456") {
+      //   this.$message({
+      //     message: "登入成功",
+      //     type: "success",
+      //   });
+      //   //路由跳转
+      //   this.$router.push({
+      //     path: "/home",
+      //   });
+      // }
+      else {
         this.$message({
           message: "登入成功",
           type: "success",
-          //路由跳转
         });
-
         this.$router.push({
-          path: "/about",
+          path: "/home",
         });
-      } else {
-        this.$message.error("账号或者密码错误");
       }
     },
   },
