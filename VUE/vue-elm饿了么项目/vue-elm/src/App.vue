@@ -13,7 +13,9 @@
           <router-link to="/seller">cc</router-link>
         </div>
     </div>
+   <div class="page">
     <router-view :data="seller" />
+   </div>
   </div>
 </template>
 
@@ -50,6 +52,12 @@ export default {
 </script>>
 
 <style lang="stylus" scoped>
+.page
+  position fixed
+  top 162px
+  left 0
+  bottom 0
+  right 0
 .tab
   width 100%
   height 50px
@@ -64,7 +72,7 @@ export default {
       width 100%
     .router-link-exact-active
       color red
-      border-bottom 1px solid red
+      border-bottom 2px solid red
 
 
     
