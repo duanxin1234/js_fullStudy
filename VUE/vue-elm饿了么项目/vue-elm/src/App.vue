@@ -4,13 +4,13 @@
     <!-- header 组件 -->
     <div class="tab">
         <div class="tab-wrapper">
-          <router-link to="/">aa</router-link>
+          <router-link to="/">goods</router-link>
         </div>
         <div class="tab-wrapper">
-          <router-link to="/comment">bb</router-link>
+          <router-link to="/comment">comment</router-link>
         </div>
         <div class="tab-wrapper">
-          <router-link to="/seller">cc</router-link>
+          <router-link to="/seller">seller</router-link>
         </div>
     </div>
    <div class="page">

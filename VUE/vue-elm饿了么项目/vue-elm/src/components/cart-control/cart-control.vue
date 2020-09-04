@@ -5,29 +5,30 @@
         <span class="inner icon-remove_circle_outline"></span>
       </div>
     </transition>
-    <div class="cart-count">{{food.count}}</div>
+    <div class="cart-count"  v-show="food.count>0" >{{food.count}}</div>
     <div class="cart-add icon-add_circle" @click.stop="add"></div>
   </div>
 </template>
 
 <script>
 export default {
-  props: {
-    food: {
-      type: Object
-    }
-  },
+  props: ["food"],
   methods: {
-    decrease() {
-      console.log(2222)
-    },
-    add() {
+  
+    add(event) {
       if (!this.food.count) {
-        this.$set(this.food, 'count', 1)
+        this.$set(this.food, 'count', 1) //设置增加或者修莫个属性
       } else {
         this.food.count++
       }
-    }
+      this.$emit("add",event.target)
+    },
+      decrease() {
+        
+          this.food.count--
+       
+      
+    },
   }
 }
 </script>

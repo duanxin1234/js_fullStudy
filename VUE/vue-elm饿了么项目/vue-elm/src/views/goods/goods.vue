@@ -2,7 +2,7 @@
   <div class="goods">
     <div class="scroll-nav-wrapper">
       <!-- 左右联动的菜单 -->
-      <cube-scroll-nav :side="true" :data="goods" :options="scrollOptions">
+      <cube-scroll-nav :side="true" :data="goods" :options="scrollOptions" v-if="goods.length">
         <!-- 左侧菜单 -->
         <template slot="bar" slot-scope="props">
           <cube-scroll-nav-bar
@@ -45,7 +45,7 @@
                 <span class="old" v-if="food.oldPrice" >${{food.oldPrice}}</span>
                 </div>
                 <div class="car-control-wrapper">
-                <carcontrol :food="food"></carcontrol>
+                <carcontrol :food="food" @add='add'></carcontrol>
                 </div>
               </div>
             </li>
@@ -53,6 +53,9 @@
         </cube-scroll-nav-panel>
       </cube-scroll-nav>
     </div>
+   <div class="shopbar-wrapper">
+    <shopbar></shopbar>
+   </div>
   </div>
 </template>
 
@@ -60,6 +63,7 @@
 import SupportIco from '@/components/support-ico/support-ico';
 import { getGoods } from '@/api'
 import carcontrol from "@/components/cart-control/cart-control.vue"
+import shopbar from "@/components/shopbar/shopbar.vue"
 
 export default {
   props: {
@@ -74,9 +78,14 @@ export default {
     return {
       goods: [],
       scrollOptions: {
-        click: false,
+        click: true,
         directionLockThreshold: 0
       }
+    }
+  },
+  methods: {
+    add(target){
+      //小球下落
     }
   },
   created() {
@@ -109,7 +118,8 @@ export default {
   },
   components: {
     SupportIco,
-    carcontrol
+    carcontrol,
+    shopbar
   }
 };
 </script>
@@ -212,4 +222,5 @@ export default {
       z-index: 50
       width: 100%
       height: 48px
+  
 </style>
