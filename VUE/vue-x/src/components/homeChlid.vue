@@ -13,7 +13,7 @@
 
 <script>
 import store from "@/vuex/store.js";
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapMutations, mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -33,7 +33,7 @@ export default {
   //     this.$store.commit("reduce");
   //   },
   // },
-  methods: mapMutations(["add", "reduce"]),
+  methods: mapState(["add", "reduce"]),
 };
 </script>
 

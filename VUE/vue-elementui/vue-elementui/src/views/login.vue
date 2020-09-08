@@ -44,6 +44,7 @@ export default {
           message: "登入成功",
           type: "success",
         });
+        sessionStorage.setItem("name", this.user); //设置本地存储
         this.$router.push({
           path: "/home",
         });

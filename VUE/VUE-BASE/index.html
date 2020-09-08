@@ -5,30 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.common.dev.js"></script>
+
     <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="app">
-        <!-- <div v-show="issure">666</div>
+
+    <!-- <div v-show="issure">666</div>
         <div>555</div> -->
-        <!-- <div class="item" v-for="item in list" :key="index">
+    <!-- <div class="item" v-for="item in list" :key="index">
             <p>{{item}}</p>
         </div>
         <div class="items" v-for="items in preson" :key="index">
             <p>{{items.name}}-{{items.age}}</p>
         </div> -->
-        <div class="msg">
-            <p>{{count}}</p>
-            <button v-on:click="add">+</button>
-            <button @click="reduce">-</button>
-        </div>
+    <div class="msg">
+        <!-- <div class="model">
+            <p>{{message}}</p>
+            <p>
+                v-model:
+                <input type="text" v-model="message" />
+            </p>
+        </div> -->
+
+        <!-- <div v-cloak>{{message}}</div> -->
+        <!-- <div class="pic">
+            <img v-bind:src="imagesrc" alt="">
+        </div> -->
+        <!-- <div v-once>{{message}}</div> 
+        <input type="text" v-model="message" /> -->
+        <div @click="changecolor" v-bind:class="isred?'red':''">666</div>
+
     </div>
+
     <script>
         var app = new Vue({
-            el: "#app",
+            el: ".msg",
             data: {
-
+                classname1: "active",
+                classname2: "warrep",
+                isred: false,
+                message: "hello vue",
+                imagesrc: "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1888971904,2026830471&fm=15&gp=0.jpg",
                 count: 0
             },
             methods: {
@@ -38,6 +61,10 @@
                 },
                 reduce() {
                     this.count--
+                },
+                changecolor() {
+                    console.log("changecolor");
+                    this.isred = !this.isred
                 }
             },
 

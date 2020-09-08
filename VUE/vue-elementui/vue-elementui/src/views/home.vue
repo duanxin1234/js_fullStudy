@@ -6,7 +6,7 @@
         <div class="ure-content">
           <el-dropdown @command="handleCommand">
             <span class="el-dropdown-link">
-              admin
+              {{name}}
               <i class="el-icon-arrow-down el-icon--right"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
@@ -60,6 +60,9 @@
 export default {
   data() {
     return {};
+  },
+  created() {
+    this.name = sessionStorage.getItem("name"); //获取本地数据
   },
   methods: {
     handleCommand(command) {
