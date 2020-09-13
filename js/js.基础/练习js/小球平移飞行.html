@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box, #box2{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: black;
+        }
+        #box2{
+            top:110px
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div id="box2"></div>
+
+    <script>
+   box=document.querySelector(".box")
+  
+    var dis=0 , timer=0 
+
+    
+    
+ setInterval(() => {
+    box.style.left=dis+++"px"
+ }, 16);
+
+//  动画函数 
+//  box2=document.querySelector(".box2")
+//   var diss=0
+// function animation(){
+//     requestAnimationFrame(()=>{
+//         box2.style.left=diss++ +"px"
+//         if(diss<500) animation()
+//     })
+// }
+// animation()
+
+box2=document.getElementById("box2")
+var left=0
+function animation(){
+    requestAnimationFrame(()=>{
+        box2.style.left=left++ + "px"
+        if (left<500) animation()
+    })
+}
+animation()
+    </script>
+</body>
+</html>
