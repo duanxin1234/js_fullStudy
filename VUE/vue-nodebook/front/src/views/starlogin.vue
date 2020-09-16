@@ -12,23 +12,59 @@
         <input type="password" id="userpwd" v-model="userpwd" />
       </div>
       <p class="forgot-pwd">忘记密码</p>
-      <div class="sign">登录</div>
+      <div class="sign" @click="login">登录</div>
     </div>
-    <p class="register">新用户？点击这里注册</p>
+    <p class="register" @click="register">新用户？点击这里注册</p>
   </div>
 </template>
+
+
 <script>
 export default {
-data() {
+  data() {
     return {
-      username:'',
-        avatar:require("../assets/img/raw_1512446076.jpeg"),
-     userpwd:''
-
-
-    }
-},
-}
+      avatar: require("../assets/img/raw_1512446140.jpeg"),
+      username: "",
+      userpwd: "",
+    };
+  },
+  methods: {
+    register() {
+      this.$router.push({ path: "/StarRegister" });
+    },
+    login() {
+      if (this.username.trim() == "" || this.username.trim() == null) {
+        this.$toast("请输入账号");
+        return;
+      }
+      if (this.userpwd.trim() == "" || this.userpwd.trim() == null) {
+        this.$toast("请输入密码");
+        return;
+      }
+      this.$http({
+        method: "post",
+        url: this.$util.baseUrl + "/users/userLogin",
+        data: {
+          username: this.username.trim(),
+          userpwd: this.userpwd.trim(),
+        },
+      })
+        .then((res) => {
+          if (res.data.code === "80000") {
+            // 拿到后端返回的用户信息  包含(用户名和昵称) 存到本地
+            sessionStorage.setItem('userInfo',JSON.stringify(res.data))
+            // 跳转首页
+        this.$router.push({path:"/noteClass"});
+          } else {
+            this.$toast(res.data.mess);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
+};
 </script>
 
 <style lang="less" scoped>
@@ -42,6 +78,7 @@ input {
   background: #fff;
   padding: 0 1.28rem;
   overflow: hidden;
+  box-sizing: border-box;
   h1 {
     margin-top: 1.12rem;
     margin-bottom: 1rem;
@@ -101,7 +138,7 @@ input {
       margin-top: 10px;
     }
     .forgot-pwd {
-      margin: 10px auto 0.56rem 1.973333rem;
+      margin: 10px auto 0.56rem 0.973333rem;
       height: 0.613333rem;
       line-height: 0.453333rem;
       opacity: 0.3;
