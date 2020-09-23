@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">123</div>
+
+<script>
+    // 在规定的时间内 频繁触发，但只触发一次
+
+function debounce(func,delay) {
+    //利用闭包保存定时器
+    let timer = null
+    return function () {
+        //在规定的时间内 再次触发会清除定时器后再重设定时器
+        clearTimeout(timer)
+        timer=setTimeout(() => {
+            func.apply(this,arguments)
+        }, delay);
+    }
+}
+document.getElementById("app").addEventListener('click',debounce(func,5000))
+ function func() {
+    console.log('防抖');
+ }
+</script>
+</body>
+</html>
