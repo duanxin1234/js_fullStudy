@@ -14,5 +14,17 @@ module.exports = {
       postCompile: true,
       theme: true
     }
+  },
+  //开发的服务
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://ustbhuangyi.com/sell/',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '/api'
+        }
+      }
+    }
   }
 }

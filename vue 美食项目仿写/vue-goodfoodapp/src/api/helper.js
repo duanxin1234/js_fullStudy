@@ -1,7 +1,7 @@
 //发起接口请求  axios
 import axios from "axios" 
 // 服务器  后面 拼接 
-const baseUrl = "http://ustbhuangyi.com/sell/" 
+const baseUrl = "" 
 
 // 2次封装axios
 export function get(url,params = {}) {
