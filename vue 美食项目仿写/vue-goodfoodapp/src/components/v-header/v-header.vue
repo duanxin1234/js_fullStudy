@@ -96,7 +96,7 @@ data() {
 
 created() {
   setTimeout(() => {
-    console.log(this.seller);
+    // console.log(this.seller);
     
   }, 1000);
 },

@@ -1,22 +1,10 @@
 <template>
-  <div class="goods">
-111
-  </div>
+  <div class="goods">111</div>
 </template>
 
 <script>
-
-
 export default {
-  
-  data() {
-    return {
-    
-    }
-  },
-  methods: {
-    
-  },
+
 }
 </script>
 
