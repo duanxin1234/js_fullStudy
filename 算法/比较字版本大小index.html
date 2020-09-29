@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>版本号大小的比较</title>
+</head>
+<body>
+    <!-- 5.4.3.2.3.5
+    4.5.3.2
+    思路 1， 切割split  把.去掉  
+         2，  在for循环  把长的长度放进去 math.max（v1(数字)，v2（数字）） -->
+
+    <script>
+function compercontcount(v1,v2) {
+    let v1arr=v1.split('.')
+    let v2arr=v2.split('.')
+    let len=Math.max(v1arr.length,v2arr.length)
+    for (let i = 0; i < len.length; i++) {
+        let v1num=Number(v1arr[i]?v1arr[i]:0)
+        let v2num=Number(v2arr[i]?v2arr[i]:0  )
+        if (v1num<v2num) {
+            return 1
+        }else if (v1num>v2num) {
+            return -1
+        }
+        
+    }
+    return 0
+}
+        
+    </script>
+
+
+</body>
+</html>
