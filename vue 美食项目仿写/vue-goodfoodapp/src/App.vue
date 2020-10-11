@@ -13,7 +13,9 @@
         <router-link to="/store">商家</router-link>
       </div>
     </div>
+   <div class="page">
     <router-view  :data='seller' />
+   </div>
   </div>
 </template>
 
@@ -33,7 +35,7 @@ export default {
     return {
       seller: {
         id: qs.parse(location.search).id,
-      },
+       },
     };
   },
 
@@ -61,6 +63,13 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.page
+  position fixed
+  top 175px
+  left 0
+  right 0
+  bottom 0
+
 
 .tab
   width 100%

@@ -1,7 +1,7 @@
 //发起接口请求  axios
 import axios from "axios" 
 // 服务器  后面 拼接 
-const baseUrl = "" 
+const baseUrl = " " 
 
 // 2次封装axios
 export function get(url,params = {}) {
@@ -11,7 +11,7 @@ export function get(url,params = {}) {
         }).then((res) => {
             //如果成功，等着它执行完
             const { errno, data } = res.data
-            // 等于 const errno = res.data.erron const data=res.data.data 
+            // 等于 const errno = res.data.erron const data=res.data.data  结构
             if (errno == 0) {
                 return data
             }

@@ -104,14 +104,17 @@ methods: {
         transition all 0.5s
     .icon  
       position relative
-      width 50px !important
-      height 50px !important
+      width 50px 
+      line-height 50px
+      height 50px 
       margin-left 200px
       font-size 30px
         .icon-close 
-            width 30px !important
-            height 30px !important
-            font-size 30px !important
+            display inline-block
+            width 100%
+            line-height 50px
+            height 100%
+            font-size 30px 
 
     .mian
         margin 64px 64px 0 64px 
