@@ -159,7 +159,7 @@ methods: {
     inner.webkitTransform=`translate3d(0,0,0)`
     el.addEventListener('transitionend',done)
     }, 
-    // sa 执行完下落后消失
+    // s 执行完下落后消失
     afterjump(el){
       const  ball=this.jumpballs.shift()
       if(ball){
