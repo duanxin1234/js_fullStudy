@@ -3,7 +3,7 @@
     <div class="scroll-nav-wrapper">
       <!-- 左右联动的菜单 -->
       <cube-scroll-nav :side="true" :data="goods" :options="scrollOptions" v-if="goods.length">
-        <!-- 左侧菜单 -->
+        <!-- 左侧菜单11 -->
         <template slot="bar" slot-scope="props">
           <cube-scroll-nav-bar
             direction="vertical"
