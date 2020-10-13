@@ -5,34 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-            .box{
-                position: relative;
-                width:100px;
-                height: 20px;
-                border: 1px solid  black;
-             
-            }
-            .box::after{
-                content: "";
-                position: absolute;
-                width: 10px;
-                height: 10px;
-                border-bottom: 1px solid #000;
-                border-left: 1px solid #000;
-                top: 1px;
-                right: 1px;
-                transform: rotate(-45deg);
-                transition: all 0.2s;
-            }
-            .box:hover::after{
-                transform: rotate(125deg);
-            }
+       .child2{
+    transform: translateY(200px)
+}
 
     </style>
 </head>
 <body>
-    <div class="box">
-        <div class="box2"></div>
+    <div class="parent">
+        <div class="child1">child1 content</div>
+        <div class="child2">child2 content</div>
+        <div class="child3">child3 content</div>
     </div>
 </body>
 </html>
