@@ -2,44 +2,65 @@ import Vue from 'vue'
 import axios from 'axios'
 
 const vue = new Vue()
-//axios 配置 网络请求的最大时长
+
+// axios 配置
 axios.defaults.timeout = 10000
-axios.defaults.baseUrl = 'http://localhost:3000'
+axios.defaults.baseURL = 'http://localhost:3000'
 
-//放回状态判断 （响应拦截）interceptors.response
-axios.interceptors.response.use((res) => {
+// 返回状态判断（响应拦截）
+axios.interceptors.response.use(
+  (res) => {
     if (res.data.code !== 200) {
-        vue.$toast('网络异常')
-        return Promise.reject(res)
+      vue.$toast('网络异常')
+      return Promise.reject(res)
     }
-    return res
-    
-},(error) => {
-        vue.$toast('服务器异常')
-     return Promise.reject(error)   
-})
+    return res.data
+  },
+  (error) => {
+    vue.$toast('服务器异常')
+    return Promise.reject(error)
+  }
+)
 
-//2次封装 
-export function get(url,params = {}) {
-    return  new Promise( function () {
-        return axios.get(baseUrl + url, {
-            params
-        }).then((res) => {
-            //如果成功，等着它执行完
-            const { errno, data } = res.data
-            // 等于 const errno = res.data.erron const data=res.data.data  结构
-            if (errno == 0) {
-                return data
-            }
-        }).catch((err) => {
-            //如果请求失败
-            console.log(err);
-        })
+
+export function fetchGet(url, param) {
+  return new Promise((resolve, reject) => {
+    axios.get(url, {
+      params: param
     })
+    .then(
+      response => {
+        resolve(response)
+      },
+      err => {
+        reject(err)
+      }
+    )
+    .catch(error => {
+      reject(error)
+    })
+  }) 
 }
 
 
-
-
-
-
+export default {
+  // 用户登录
+  Login(params) {
+    return fetchGet('/login', params)
+  },
+  // 热门搜索
+  HotSearchKey() {
+    return fetchGet('/search/hot')
+  },
+  // music搜索
+  MusicSearch(params) {
+    return fetchGet('/search', params)
+  },
+  //获取歌曲url
+  MusicUrl(id) {
+    return fetchGet('/song/url', {
+      id
+    })
+  }
+  
+}

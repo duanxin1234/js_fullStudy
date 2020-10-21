@@ -47,7 +47,8 @@ export default {
       */
     data: {
       type: Array,
-      default: null
+      default: null,
+      
     },
     pullup: {
       type: Boolean,
