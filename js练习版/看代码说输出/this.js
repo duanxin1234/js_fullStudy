@@ -39,14 +39,12 @@
 // var p = test.init(go); 
 // p(); 
  //B在全局下定义 所以this指向window b=5
+
 function B() {
-    
-    console.log(this.b); //下面的 this。b console.log找不到 所以就是b=5
-    this.b=2
-}
-var b=5
-B.prototype.b = 3
+        console.log(this.c);    // 2
+        this.c = 1
+    }
+    B.prototype.c = 2
+    let b = new B()
 
-
-let c=new B()
 

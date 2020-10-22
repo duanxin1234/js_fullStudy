@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function make() {
+            let f=false
+            return function () {
+                let res=f? 1:2
+                f=!f
+                return res
+            }
+        }
+        let a=make()
+        console.log(a());
+        console.log(a());
+        console.log(a());
+
+    </script>
+</body>
+</html>

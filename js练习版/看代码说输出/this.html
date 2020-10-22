@@ -9,14 +9,15 @@
 
 <body>
     <script>
-        var a = function () {
+         function a() {
 
             this.b = 3;
         }
         var c = new a(); // c={b:3}
         a.prototype.b = 9;  //里面没有b 就会在原型链上面找
         var b = 7;  //b=7
-        a(); //a在全局下引用 this指向window  所以 b变成3
+
+        a(); //a在全局下引用  this指向window b=3 所以 b变成3
 
         console.log(b); //3
         console.log(c.b); //3
