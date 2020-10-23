@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- axios jquery 底层是由 xmlhttprequest -->
+    <!-- fetch -->
+
+    <script>
+        // 简单 请求
+        //非简单请求 
+        let header=new Headers();
+        header.set('Content-Type','application/json');
+        header.set('X-custom','XXXXXX')
+        fetch('http://localhost:9090/api',{
+            headers:header,
+            data:JSON.stringify({a:1})
+        })
+        .then(res=>res.json())
+        .then(r=>{
+            console.log(r);
+        })
+    </script>
+</body>
+</html>

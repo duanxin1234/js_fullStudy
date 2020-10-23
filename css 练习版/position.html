@@ -6,22 +6,20 @@
     <title>css定位</title>
     <style>
         .out{
-          
+          position: relative;
+          /* 根据自身 */
 
         }
-        .in1{
-            /* BFC 包含块 */
-           
-        }
+     
         .in3{
             width: 200px;
             /* background-color: pink; */
         }
         .in2{
             /* 相对于 这个元素的包含块来计算  当有transform 或者 fiter在你父级父父级盒子时你就要跟着那个盒子走 width hight  */
-            position: fixed;
-            top: 10px;
-            right: 0;
+            position: absolute;
+            top: 0;
+           
             
             /* background-color: pink; */
 
