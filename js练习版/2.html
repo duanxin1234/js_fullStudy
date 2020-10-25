@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>圣杯布局</title>
+    <title>双飞翼布局</title>
     <style>
-        *{
+          *{
             margin: 0;padding: 0;
         }
         p{
@@ -18,8 +18,8 @@
         }
         .canteir{
             /* float: left; */
-            padding-left: 150px;
-            padding-right: 250px;
+          margin-left: 150px;
+          margin-right: 250px;
         }
         .center{
             width: 100%;
@@ -48,7 +48,7 @@
             width: 250px;
             /* : 250px; */
             background-color: blue;
-           margin-right: -250px;
+            margin-right: -250px;
            /* left: 250px; */
             
         }
@@ -59,16 +59,15 @@
         .clear{
             clear: both;
         }  
-        
     </style>
 </head>
 <body>
-   <p>header</p>
-  <div class="canteir">
-    <div class="center app">2</div>
-    <div class="left app">1</div>
-    <div class="right app">3</div>
-  </div>
-   <p class="clear">header</p>
+    <p>header</p>
+    <div class="canteir">
+      <div class="center app">2</div>
+      <div class="left app">1</div>
+      <div class="right app">3</div>
+    </div>
+     <p class="clear">header</p>
 </body>
 </html>
