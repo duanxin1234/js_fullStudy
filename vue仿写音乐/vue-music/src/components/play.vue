@@ -1,7 +1,7 @@
 <template>
   <div class="player">
      <audio ref="audio">
-        
+
 
      </audio>
   </div>
@@ -22,8 +22,14 @@ watch: {
         }
         if(!newsong.url){
             const {data,code}=await api.MusicUrl(newsong.id)
+            if(data &&code===200){
+              newsong={...newsong,url:data[0].url}
+            }else{
+              alert('报错')
+            }
         }
-
+        this.$refs.audio.src=newsong.url
+        this.$refs.audio.play()
     }
 },
 }

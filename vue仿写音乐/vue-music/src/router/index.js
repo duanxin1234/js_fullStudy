@@ -4,7 +4,7 @@ const search =()=> import('@/views/search')
 const recom = () => import('@/views/recom')
 const singer = () => import('@/views/singer')
 const rank = () => import('@/views/rank')
-
+const rankinfo=()=> import('@/components/rankinfo.vue')
 
 Vue.use(VueRouter)
 
@@ -28,6 +28,11 @@ const routes = [
     path: '/rank',
     name: 'rank',
     component: rank
+  },
+  {
+    path: '/rankinfo',
+    name: 'rankinfo',
+    component: rankinfo
   }
   
   

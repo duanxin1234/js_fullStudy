@@ -1,13 +1,118 @@
 <template>
-  <div class="rank">333</div>
+  <div class="rank" >
+    <ul class="infinite-list" v-infinite-scroll="load" style="overflow: auto">
+      <li
+        v-for="(item, index) in rankinfo"
+        class="infinite-list-item"
+        :key="index"
+        @click="jumpMusicList"
+      >
+        <div class="warp">
+          <div class="box">
+            <img class="img" :src="item.coverImgUrl" alt="" />
+          </div>
+          <ul class="text" v-if="item.tracks.length">
+            <li class="name" >
+              1,{{ item.tracks && item.tracks[0] && item.tracks[0].first }}-{{item.tracks && item.tracks[0] && item.tracks[0].second}}
+            </li>
+            <li class="name">2,{{ item.tracks && item.tracks[1] && item.tracks[1].first }}-{{item.tracks && item.tracks[1] && item.tracks[1].second}}</li>
+            <li class="name">3.{{ item.tracks && item.tracks[2] && item.tracks[2].first }}-{{item.tracks && item.tracks[2] && item.tracks[2].second}}</li>
+          </ul>
+           <ul class="text" v-else>
+              <li class="digname">
+                <span class="_dianame">{{item.name}}</span>
+              </li>
+              <li class="name">{{item.description}}</li>
+           </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
+import api from "@/api/index.js";
 export default {
-
-}
+  data() {
+    return {
+      count: 0,
+      rankinfo: [],
+    };
+  },
+  methods: {
+    load() {
+      this.count += 2;
+    },
+    _getrankinfo() {
+      api.Rankinfo().then((res) => {
+        console.log(res);
+        this.rankinfo = res.list.slice(0, 35);
+      });
+    },
+    jumpMusicList(){
+        this.$router.push({path: '/rankinfo'});
+    }
+  },
+  created() {
+    this._getrankinfo();
+  },
+};
 </script>
 
-<style>
+<style   lang="stylus" scoped>
+.infinite-list {
+  height: 90vh;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 
+  .infinite-list-item {
+    height: 100px;
+    background-color: pink;
+    margin: 5px 8px 5px 8px;
+    border-radius: 10px;
+
+    .warp {
+      display: flex;
+
+      .box {
+        flex:0 0 100px
+        text-align: center;
+        width: 100px;
+        height: 80px;
+        margin: 10px 10px;
+        line-height: 80px;
+        font-size: 80px;
+
+        .img {
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .text {
+       
+        margin: 10px 0px;
+        overflow:hidden;
+      
+        .name {
+          font-size :13px;
+          font-weight :1000;
+          margin: 8px 0px;
+          white-space:nowrap;
+          text-overflow:ellipsis
+
+
+        }
+        .digname{
+           margin: auto;
+           font-size :20px;
+           font-weight :1000;
+        
+        }
+      }
+    }
+  }
+}
 </style>

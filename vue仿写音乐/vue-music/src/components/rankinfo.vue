@@ -1,7 +1,5 @@
 <template>
-  <div class="singer">
- 22
-  </div>
+  <div class="rankinfo">1122</div>
 </template>
 
 <script>

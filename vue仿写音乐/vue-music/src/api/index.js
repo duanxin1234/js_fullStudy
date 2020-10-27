@@ -61,6 +61,14 @@ export default {
     return fetchGet('/song/url', {
       id
     })
+  },
+  //获取 榜单内容摘要
+  Rankinfo() {
+    return fetchGet('/toplist/detail')
+  },
+  //获取 推荐歌曲
+  Recominfo() {
+    return fetchGet('/personalized')
   }
   
 }

@@ -74,7 +74,7 @@ export default {
     searchResult
   },
   methods: {
-    ...mapActions(['deletehistory','clearhistory','savetest']),
+    ...mapActions(['deletehistory','clearhistory','savetest','selectpalysong']),
     //获取热门搜索
    _getHotky(){
       api.HotSearchKey().then((res)=>{
@@ -84,6 +84,7 @@ export default {
       })
    },
    saveselect(item){
+
      //保存历史记录
     
      this.savetest(this.query)
