@@ -7,11 +7,29 @@
 </head>
 <body>
     <script>
+        Person.prototype.lastname='wu'
         function Person() {
             
         }
         let person=new Person()
-        console.log(person);
+        Father.prototype=person
+        function Father() {
+            this.name='liu'
+            this.fourtune={
+                card1:'vise'
+            }
+            this.num=100
+        }
+        let father =new Father()
+        Son.prototype=father
+        function Son(params) {
+            this.num++
+        }
+        let son= new Son()
+        son.fourtune.card2='ss'
+       
+        console.log(son.num);
+        console.log(father.num);
     </script>
 </body>
 </html>
