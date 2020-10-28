@@ -5,7 +5,7 @@
 function test() {
     let count = 0
    
-    return   function () {
+    return     function () {
         count++
         console.log(count);
     }
