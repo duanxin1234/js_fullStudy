@@ -69,6 +69,14 @@ export default {
   //获取 推荐歌曲
   Recominfo() {
     return fetchGet('/personalized')
-  }
-  
+  },
+  //获取歌手 列表
+  Singerinfo() {
+    return fetchGet('/artist/list',{ cat: 5001,
+      limit: 80})
+  },
+  //推荐
+  DiscLists(params) {
+    return fetchGet('/top/playlist', params)
+  },
 }

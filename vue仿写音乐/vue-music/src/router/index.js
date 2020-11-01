@@ -27,14 +27,13 @@ const routes = [
   {
     path: '/rank',
     name: 'rank',
-    component: rank
+    component: rank,
+    children: [{
+      path: ':rankinfo',
+      component: rankinfo
+    }]
   },
-  {
-    path: '/rankinfo',
-    name: 'rankinfo',
-    component: rankinfo
-  }
-  
+
   
 ]
 

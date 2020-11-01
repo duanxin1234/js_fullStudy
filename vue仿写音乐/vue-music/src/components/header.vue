@@ -3,7 +3,7 @@
     <div class="header-left">
          <i class="iconfont" @click.stop="upmenu">&#xe672;</i>
     </div>
-  <div class="header-content">magicmusic</div>
+  <div class="header-content">段鑫magicmusic</div>
     <div class="header-right">
         <i class="iconfont">&#xe6dd;</i>
     </div>

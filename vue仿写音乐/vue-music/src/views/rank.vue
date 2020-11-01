@@ -1,11 +1,16 @@
 <template>
   <div class="rank" >
+   
     <ul class="infinite-list" v-infinite-scroll="load" style="overflow: auto">
+      <cube-scroll
+     ref="scroll"
+    >
       <li
         v-for="(item, index) in rankinfo"
         class="infinite-list-item"
-        :key="index"
-        @click="jumpMusicList"
+        :class="itemclass(index)"
+        :key="item.id"
+        @click="jumpMusicList(item)"
       >
         <div class="warp">
           <div class="box">
@@ -26,20 +31,37 @@
            </ul>
         </div>
       </li>
+      </cube-scroll>
     </ul>
+     
   </div>
 </template>
 
 <script>
+
 import api from "@/api/index.js";
 export default {
   data() {
     return {
       count: 0,
       rankinfo: [],
+     
+      
     };
   },
   methods: {
+    //随机数生成
+    itemclass(){
+      //0-4之间随机成生 
+     const random = Math.floor(Math.random() * 4 + 1 )
+      const obj = {
+        '1': 'red',
+        '2': 'green',
+        '3': 'pink',
+        '4': 'blue'
+      }
+      return obj[random]
+    },
     load() {
       this.count += 2;
     },
@@ -49,8 +71,10 @@ export default {
         this.rankinfo = res.list.slice(0, 35);
       });
     },
-    jumpMusicList(){
-        this.$router.push({path: '/rankinfo'});
+    jumpMusicList(item){
+        console.log(item);
+        this.$router.push({path: `/rank/rankinfo`});
+
     }
   },
   created() {
@@ -68,11 +92,24 @@ export default {
 
   .infinite-list-item {
     height: 100px;
-    background-color: pink;
     margin: 5px 8px 5px 8px;
     border-radius: 10px;
-
-    .warp {
+   &.pink{
+      background-color: pink;
+   }
+   &.red{
+     background-color: red;
+   }
+       
+   &.blue {
+      background-color: blue;   
+     }
+         
+     &.green {
+       background-color: green;  
+     }
+           
+    .warp  {
       display: flex;
 
       .box {

@@ -1,16 +1,20 @@
 <template>
  <div class="recom">
+    <cube-scroll
+    ref="scroll"
+    >
     <!-- 轮播图-->
-    <el-carousel :interval="4000" type="card" height="200px">
+       <el-carousel :interval="4000" type="card" height="200px">
       <el-carousel-item v-for="(item ,index) in getrecominfolist " :key="index">
      
-       <img  class="medium" :src="item.picUrl" alt="">
+       <img  class="medium" :src="item" alt="">
       </el-carousel-item>
-    </el-carousel>
-    <div class="recommusic">
+       </el-carousel>
+       <div class="recommusic">
       <span class="recomhot">热门歌单推荐</span>
-    </div>
-     <ul class="infinite-list" >
+       </div>
+      
+       <ul class="infinite-list" >
       <li
         v-for="(item,index) in getrecominfo"
         class="infinite-list-item"
@@ -18,18 +22,20 @@
       >
         <div class="warp">
           <div class="box">
-            <img class="img" :src="item.picUrl" alt="" />
+            <img class="img" :src="item.coverImgUrl" alt="" />
           </div>
          
            <ul class="text" >
               <li class="digname">
                 <span class="_dianame">{{item.name}}</span>
               </li>
-              <li class="name">{{item.copywriter}}</li>
+              <li class="name">{{item.description}}</li>
            </ul>
         </div>
       </li>
-    </ul>
+       </ul>
+      
+    </cube-scroll>
  </div>
 </template>
 
@@ -41,16 +47,16 @@ export default {
   data() {
     return {
       getrecominfo:[],
-      getrecominfolist:[],
+      getrecominfolist:['http://p1.music.126.net/VnY7owCib3VfZZ0AWnS4cQ==/109951165421211549.jpg','http://p1.music.126.net/t0RX7F2K9oyxgUwnO7SVAA==/109951165421649200.jpg','http://p1.music.126.net/zLH_0E1XXkDCmx-JvrzHxg==/109951165421604074.jpg','http://p1.music.126.net/VEF8mXJl2bBKHsk9t19EjQ==/109951165421621630.jpg','http://p1.music.126.net/fbNJ9y_SeRqQzjSP5ljaEA==/109951165421642525.jpg','http://p1.music.126.net/0H7ohP-r2FcX1BVZ4xq2iQ==/109951165421645695.jpg'],
       
     }
   },
   methods: {
     _getrecominfo(){
-      api.Recominfo().then((res) => {
+      api.DiscLists().then((res) => {
         console.log(res);
-       this.getrecominfo=res.result.slice(0,30);
-       this.getrecominfolist=res.result.slice(10,16);
+       this.getrecominfo=res.playlists.slice(0,50);
+       
       });
     }
   },
@@ -62,7 +68,10 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-
+  .recom{
+    height :90vh;
+    overflow :hidden;
+  }
   .el-carousel__item h3 {
     color: #475669;
     font-size: 14px;
@@ -94,7 +103,7 @@ export default {
     font-weight:1000;
   }
   .infinite-list {
-  height: 90vh;
+  height: 100%;
   padding: 0;
   margin: 0;
   list-style: none;
