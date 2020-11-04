@@ -1,41 +1,56 @@
 <template>
   <div class="rankinfo">
     <div class="title">
-      <i class="iconfont">&#xe612;</i>
+      <i class="iconfont" @click="backrank">&#xe612;</i>
       <span class="name">{{query.name}}</span>
     </div>
     <div class="titleimg">
       <img  class="img" :src="query.coverImgUrl" alt="">
     </div>
+    <cube-scroll
+    ref="scroll"
+    >
     <ul class="ul">
-      <li class="li">
+      <li class="li" v-for="(item,index) in musiclist " :key="index">
         <div class="musicinfo">
-          <h1 class="h1">歌手</h1>
-          <h1>歌名</h1>
+          <h1 class="h1">{{item.al.name}}</h1>
+          <h1>{{item.ar[0].name}}</h1>
         </div>
         <div class="icon">
           <i class="iconfont">&#xe637;</i>
         </div>
       </li>
     </ul>
-
+    </cube-scroll >
   </div>
 </template>
 
 <script>
-
+import api from '@/api'
 export default {
   data() {
     return {
-     query:[]
+     query:[],
+     musiclist:[]
     };
   },
   methods: {
-   
+     _getmusicinfo() {
+      api.SongList({id:this.$route.query.type.id}).then((res) => {
+        console.log(res);
+        this.musiclist= res.playlist.tracks
+       
+      });
+    },
+    backrank(){
+         const vn=this
+        vn.$router.push({path: `/rank`});
+    }
   },
   created() {
     this.query=this.$route.query.type
     console.log(this.$route.query.type);
+    this._getmusicinfo()
   },
 };
 </script>
@@ -77,14 +92,18 @@ export default {
         height 100%   
     .ul 
       .li 
+        position relative
         margin 10px 0 5px 25px
         display flex
         .musicinfo
+          width 100%
           padding 10px
           .h1
-            margin-bottom  5px
-      .icon
-        margin  10px 10px 0px 250px
+            margin-bottom  5px           
+        .icon
+            position absolute
+            right   15px
+            margin  10px 10px 
       
       
 

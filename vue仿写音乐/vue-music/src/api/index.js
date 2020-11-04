@@ -79,4 +79,7 @@ export default {
   DiscLists(params) {
     return fetchGet('/top/playlist', params)
   },
+  SongList() {
+    return fetchGet('/playlist/detail',{id:24381616} )
+  },
 }

@@ -4,7 +4,7 @@ const search =()=> import('@/views/search')
 const recom = () => import('@/views/recom')
 const singer = () => import('@/views/singer')
 const rank = () => import('@/views/rank')
-const rankinfo=()=> import('@/components/rankinfo.vue')
+const rankinfo=()=> import('@/views/rankinfo.vue') 
 
 Vue.use(VueRouter)
 
@@ -28,10 +28,13 @@ const routes = [
     path: '/rank',
     name: 'rank',
     component: rank,
-    children: [{
-      path: ':rankinfo',
-      component: rankinfo
-    }]
+   
+  },
+  {
+    path: '/rankinfo',
+    name: 'rankinfo',
+    component: rankinfo,
+   
   },
 
   
@@ -42,5 +45,14 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+const VueRouterPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push (to) {
+    return VueRouterPush.call(this, to).catch(err => err)
+}
 
+//replace
+const VueRouterReplace = VueRouter.prototype.replace
+VueRouter.prototype.replace = function replace (to) {
+  return VueRouterReplace.call(this, to).catch(err => err)
+}
 export default router
