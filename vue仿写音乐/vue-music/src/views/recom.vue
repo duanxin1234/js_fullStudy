@@ -19,6 +19,8 @@
         v-for="(item,index) in getrecominfo"
         class="infinite-list-item"
         :key="index"
+        @click="musiclist(item)"
+
       >
         <div class="warp">
           <div class="box">
@@ -58,6 +60,11 @@ export default {
        this.getrecominfo=res.playlists.slice(0,50);
        
       });
+    },
+    musiclist(item){
+       console.log(item);
+        const vn=this
+        vn.$router.push({path: `/recom/${item.id}`, query:{type:item}});
     }
   },
   created() {
@@ -139,6 +146,7 @@ export default {
         overflow:hidden;
       }
         .name {
+          color :hsla(0,0%,100%,.2);
           font-size :13px;
           font-weight :700;
           margin: 8px 0px;

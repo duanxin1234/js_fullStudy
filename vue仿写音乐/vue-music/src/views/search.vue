@@ -86,7 +86,7 @@ export default {
    saveselect(item){
 
      //保存历史记录
-    
+    console.log(item,item);
      this.savetest(this.query)
      //播放音乐
      this.selectpalysong(item)

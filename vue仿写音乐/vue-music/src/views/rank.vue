@@ -74,7 +74,7 @@ export default {
     jumpMusicList(item){
         console.log(item);
         const vn=this
-        vn.$router.push({path: `/rankinfo`, query:{type:item}});
+        vn.$router.push({path: `/rank/${item.id}`, query:{type:item}});
 
     }
   },

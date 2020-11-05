@@ -17,7 +17,11 @@ const routes = [
   {
     path: '/recom',
     name: 'recom',
-    component: recom
+    component: recom,
+    children: [{
+      path: ':id',
+      component: rankinfo
+    }]
   },
   {
     path: '/singer',
@@ -28,14 +32,12 @@ const routes = [
     path: '/rank',
     name: 'rank',
     component: rank,
-   
+    children: [{
+      path: ':id',
+      component: rankinfo
+    }]
   },
-  {
-    path: '/rankinfo',
-    name: 'rankinfo',
-    component: rankinfo,
-   
-  },
+  
 
   
 ]
