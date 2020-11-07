@@ -1,7 +1,7 @@
 <template>
   <div class="search">
     <div class="search-box-warrper">
-      <search-box @query='onquery'></search-box>
+      <search-box @query='onquery' ></search-box>
       <hr/>
       <!-- 热门搜索-->
       <div class="shortcut-wrapper" ref='shortcutWrapper' v-show="!query">
@@ -11,7 +11,7 @@
                   <h1 class="title">热门搜索</h1>
                   <ul class="ul">
                     <li class="item" v-for="(item,index) in hotkey" :key="index">
-                      <span>{{item.first}}</span>
+                      <span >{{item.first}}</span>
                     </li>
                   </ul>
               </div>
@@ -90,7 +90,8 @@ export default {
      this.savetest(this.query)
      //播放音乐
      this.selectpalysong(item)
-   }
+   },
+   
    
   
   

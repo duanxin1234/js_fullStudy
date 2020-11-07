@@ -5,10 +5,15 @@ const recom = () => import('@/views/recom')
 const singer = () => import('@/views/singer')
 const rank = () => import('@/views/rank')
 const rankinfo=()=> import('@/views/rankinfo.vue') 
-
+const recominfo=()=> import('@/views/recominfo.vue') 
 Vue.use(VueRouter)
 
 const routes = [
+  // 默认跳转页面
+  {
+    path: '/',
+    redirect:'/recom'
+  },
   {
     path: '/search',
     name: 'search',
@@ -18,10 +23,7 @@ const routes = [
     path: '/recom',
     name: 'recom',
     component: recom,
-    children: [{
-      path: ':id',
-      component: rankinfo
-    }]
+   
   },
   {
     path: '/singer',
@@ -32,12 +34,20 @@ const routes = [
     path: '/rank',
     name: 'rank',
     component: rank,
-    children: [{
-      path: ':id',
-      component: rankinfo
-    }]
-  },
   
+  },
+  {
+    path: '/rankinfo/:id',
+    name: 'rankinfo',
+    component: rankinfo,
+  
+  },
+    {
+    path: '/recominfo/:id',
+    name: 'recominfo',
+    component: recominfo,
+  
+  },
 
   
 ]

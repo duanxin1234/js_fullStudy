@@ -6,9 +6,7 @@
     <!-- 标签栏table -->
     <Table></Table>
     <!-- keep-alive 缓存页面 -->
-    <keep-alive>
-       <router-view />
-    </keep-alive>
+    <router-view />
     <!-- 全局播放音乐组件 -->
     <Play></Play>
   </div>

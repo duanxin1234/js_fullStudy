@@ -16,7 +16,8 @@ export default {
         placeholder:{
             type:String,
             default:"搜索歌曲，歌手"
-        }
+        },
+      
     },
   data() {
       return {
@@ -56,6 +57,7 @@ created() {
          this.$emit('query',newquery)  
         console.log(newquery,oldquery)
     },300))
+  
 },
 }
 </script>

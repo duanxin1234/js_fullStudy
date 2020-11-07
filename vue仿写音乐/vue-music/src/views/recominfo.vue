@@ -49,13 +49,12 @@ export default {
         this.query=res.playlist.tracks
       });
     },
-
     backrank() {
       const vn = this;
-      vn.$router.push({ path: `/rank` });
+      vn.$router.push({ path: `/recom` });
     },
     playmusic(item) {
-      console.log(item);
+      this.selectpalysong(item);
     },
   },
   created() {
@@ -120,7 +119,6 @@ export default {
       position: relative;
       margin: 10px 0 5px 25px;
       display: flex;
-     
 
       .musicinfo {
         width: 100%;

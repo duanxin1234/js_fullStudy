@@ -19,7 +19,7 @@
         v-for="(item,index) in getrecominfo"
         class="infinite-list-item"
         :key="index"
-        @click="musiclist(item)"
+        @click="musiclist(item.id)"
 
       >
         <div class="warp">
@@ -61,10 +61,10 @@ export default {
        
       });
     },
-    musiclist(item){
-       console.log(item);
+    musiclist(id){
+       console.log(id);
         const vn=this
-        vn.$router.push({path: `/recom/${item.id}`, query:{type:item}});
+        vn.$router.push({path: `/recominfo/${id}`, query:{id:id}});
     }
   },
   created() {
