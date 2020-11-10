@@ -58,9 +58,9 @@ export default {
   },
   //获取歌曲url
   MusicUrl(id) {
-    return fetchGet('/song/url', {
+    return fetchGet('/song/url', 
       id
-    })
+    )
   },
   //获取 榜单内容摘要
   Rankinfo() {
@@ -82,4 +82,8 @@ export default {
   SongList(params) {
     return fetchGet('/playlist/detail',params )
   },
+ 
+  musicpaly(id) {
+    return fetchGet('/scrobble',id)
+  }
 }

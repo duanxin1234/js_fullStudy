@@ -5,7 +5,8 @@ const recom = () => import('@/views/recom')
 const singer = () => import('@/views/singer')
 const rank = () => import('@/views/rank')
 const rankinfo=()=> import('@/views/rankinfo.vue') 
-const recominfo=()=> import('@/views/recominfo.vue') 
+const recominfo = () => import('@/views/recominfo.vue') 
+const  playmusicpage = () => import('@/views/playmusicpage.vue') 
 Vue.use(VueRouter)
 
 const routes = [
@@ -48,7 +49,12 @@ const routes = [
     component: recominfo,
   
   },
-
+  {
+    path: '/playmusicpage/:id',
+    name: 'playmusicpage',
+    component: playmusicpage,
+  
+  },
   
 ]
 

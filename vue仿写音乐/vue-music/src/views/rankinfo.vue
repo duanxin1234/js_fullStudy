@@ -13,7 +13,7 @@
           class="li"
           v-for="(item, index) in query"
           :key="index"
-          @click="playmusic(item)"
+          @click="playmusic(item.id)"
         >
           <div class="musicinfo">
             <h1 class="h1">{{ item.name }}</h1>
@@ -30,7 +30,7 @@
 
 <script>
 import api from "@/api"
-import { mapActions } from "vuex";
+
 export default {
   data() {
     return {
@@ -40,10 +40,10 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["selectpalysong"]),
+    
      _getrankinfo() {
       api.SongList({id:this.$route.query.id}).then((res) => {
-        console.log(res);
+       
         this.img=res.playlist.coverImgUrl
         this.name=res.playlist.name
         this.query=res.playlist.tracks
@@ -54,12 +54,17 @@ export default {
       const vn = this;
       vn.$router.push({ path: `/rank` });
     },
-    playmusic(item) {
-      console.log(item);
+    playmusic(id) {
+
+      const vn = this;
+      vn.$router.push({ path: `/playmusicpage/${id}`, query: { id: id } });
+      
+
     },
   },
   created() {
     this._getrankinfo()
+    
   },
 
   mounted() {
