@@ -1,11 +1,11 @@
-<template>
+<template>  
   <div class="shop-cart">
     <div class="content">
       <div class="content-left">
         <div class="logo-wrapper">
           <div class="logo" :class="{'highlight': totalCount > 0}">
             <i class="icon-shopping_cart" :class="{'highlight': totalCount > 0}"></i>
-          </div>
+          </div>  
           <div class="num">
             <span class="bubble">{{totalCount}}</span>
           </div>
@@ -100,7 +100,8 @@ export default {
     }
   },
   methods: {
-    pay() {
+    pas,
+    y() {
       if (this.totalPrice < this.minPrice) {
         return
       }
