@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- repeat 实现，使用JS实现一个repeat方法，
+    调用这个 repeatedFunc("hellworld")，
+    会alert4次 helloworld, 每次间隔3秒
+    function repeat(func, times, wait) {
+  
+    }
+    const repeatFunc = repeat(alert, 4, 3000)
+    repeatedFunc("hellworld") -->
+    <script>
+        function repeat(func,times,wait) {
+           return (a)=>{
+           for (let i = 0; i < times; i++) {
+            setTimeout(() => {
+                func(a)
+            }, i*wait );
+               
+           }
+        }
+        }
+        const repeatfunc=repeat(alert,4,3000)
+        repeatfunc('helloworld')
+    </script>
+</body>
+</html>

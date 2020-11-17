@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .content{
+        width: 100px;
+        height: 100px;
+        margin: 50px auto;
+        position: relative;
+        transform-style: preserve-3d;
+        perspective: 500px;
+        transition: all 0.5s;
+        
+    }
+    .box,.box1{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        
+    /* 文字居中 */
+        font-size: 20px;
+         text-align: center;
+        line-height: 100px;
+    }
+    .box{
+        background-color: pink;
+        z-index: 1;
+    }
+    .box1{
+        background-color: red;
+        transform: rotateY(180deg);
+    }
+    .content:hover{
+        transform: rotateY(180deg);
+    }
+
+    </style>
+</head>
+<body>
+   <div class="content">
+    <div class="box">
+      段鑫
+    </div>
+    <div class="box1">
+       周星驰
+    </div>
+   </div>
+</body>
+</html>
