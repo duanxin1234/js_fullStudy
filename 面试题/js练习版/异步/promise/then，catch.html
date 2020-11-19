@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const p3 =  Promise.resolve().then(() => {
+             throw new Error('ss')
+})
+
+const p4=Promise.reject().catch(()=>{
+    throw new Error('ss')
+})
+console.log('p3',p3);
+console.log("p4",p4);
+    </script>
+</body>
+</html>

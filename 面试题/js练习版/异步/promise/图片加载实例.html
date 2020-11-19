@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="img"  alt="" >
+    <script>
+        
+  const url="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1604073568586&di=b53a907698cd277211d94fca1cb9a0ba&imgtype=0&src=http%3A%2F%2Fi0.sinaimg.cn%2Fent%2Fm%2Ff%2F2013-03-05%2FU8385P28T3D3869939F326DT20130305120133.jpg"
+function imgLoading(url) {
+    return new Promise((reslove,reject) => {
+        const img = document.getElementById('img')
+        img.onload = () => {
+            reslove(img)
+        }
+        img.onerror = () => {
+            reject( '图片加载失败')
+        }
+        img.src=url
+    })
+}
+
+imgLoading(url).then(img => {
+    console.log(img.width);
+    return img
+}).then(img => {
+    console.log(img);
+}).catch(err => {
+    console.log(err);
+})
+    </script>
+</body>
+</html>

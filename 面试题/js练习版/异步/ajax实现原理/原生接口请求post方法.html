@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var myAjax=new XMLHttpRequest()
+    myAjax.open('post','http://neteasecloudmusicapi.zhaoboy.com/top/list') //
+    myAjax.setRequestHeader('content-type','application/x-www-form-urlencoded') //post请求 （属于加密传输） 一定要设置请求头
+
+   
+    myAjax.send('idx=1')
+    myAjax.onreadystatechange=function(){
+        if(myAjax.readyState===4 && myAjax.status===200){
+            console.log(JSON.parse(myAjax.responseText));
+        }else if(myAjax.readyState===4 && myAjax.status===404){
+            console.log('not found');
+        }
+    }
+
+</script>
+</body>
+</html>

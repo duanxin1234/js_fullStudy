@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function vuerequest(method,url,data,success) {
+            var ajax=new XMLHttpRequest()
+            if (method=="get" ||method =='Get') {
+                //如果传了参数那么 进入get请求
+                if(data){
+                    url =url+'?'+data
+                    
+                }else{
+
+                }
+                ajax.open(method,url)
+                ajax.send()
+            } 
+            else{
+                //post请求
+                ajax.open(method,url)
+                ajax.setRequestHeader('content-type','application/x-www-form-urlencoded')
+                if (data) {
+                    ajax.send(data)
+                } else {
+                    ajax.send()
+                }
+            }
+            ajax.onreadystatechange=function(){
+             if(ajax.readyState===4 && ajax.status===200){
+                 success(JSON.parse(ajax.responseText));
+            }
+    }
+
+        }
+
+        vuerequest('get','http://neteasecloudmusicapi.zhaoboy.com/top/list','idx=1',
+        function success(res) {
+            console.log(res);
+        }
+        )
+    </script>
+</body>
+</html>
